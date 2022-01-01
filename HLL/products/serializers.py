@@ -6,8 +6,9 @@ class ProductSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     description = serializers.CharField()
     price = serializers.IntegerField()
+    quantity = serializers.IntegerField()
     image = serializers.URLField()
-    cart = serializers.BooleanField()
+    cart = serializers.IntegerField()
 
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
@@ -15,7 +16,7 @@ class ProductSerializer(serializers.Serializer):
 class cartItemSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     cart_quantity = serializers.IntegerField()
-    cartUser = serializers.CharField(max_length=200, default='SOME STRING')
+    cartUser = serializers.CharField(max_length=200)
     product_id = serializers.IntegerField()
 
     def create(self, validated_data):

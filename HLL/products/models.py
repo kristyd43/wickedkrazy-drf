@@ -5,9 +5,9 @@ class Product(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     price = models.IntegerField()
-    quantity = models.IntegerField(default='SOME INTEGER')
+    quantity = models.IntegerField()
     image = models.URLField()
-    cart = models.BooleanField()
+    cart = models.IntegerField()
 
 class cartItem(models.Model):
     cart_quantity = models.IntegerField()
